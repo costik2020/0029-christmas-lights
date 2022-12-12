@@ -1,6 +1,14 @@
+* {
+    box-sizing: border-box; 
+    ffffborder: 1px solid white;
+}
+
+
 body {
     background: url("christmas-santa.png");
     background-size: cover;
+    margin: 0;
+
 }
 
 h2 {
@@ -8,3 +16,84 @@ h2 {
     margin-top: 5rem;
     text-align: center;
 }
+
+
+
+/*Christmas lights styling*/
+#wire {
+
+    ffffborder: 1px solid white;
+    text-align: center;
+    white-space: nowrap;
+    position: absolute;
+    top: 10px;
+    padding: 0;
+    width: 100%;
+    border-bottom: 3px solid #222;
+    height: 20px;
+}
+
+
+
+#wire li {
+    
+    border: 1px solid white;
+    position: relative;
+    list-style: none;
+    margin: 0 15px;
+    padding: 0; 
+    display: inline-block;
+    width: 15px;
+    height: 30px;
+    border-radius: 50%;
+    top: 22px;
+    background: white;
+    animation-name: even-flash;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+
+}
+
+
+
+@keyframes even-flash {
+    0% {
+        background: rgba(255, 230, 65, 1);
+        box-shadow: 0px 2px 2px 4px rgba(255, 230, 65, 1);
+    }
+
+    50% {
+        background: rgba(255, 230, 65, 0.5);
+        box-shadow: 0px 2px 2px 4px rgba(255, 230, 65, 0.3);
+    }
+
+    100% {
+        background: rgba(255, 230, 65, 1);
+        box-shadow: 0px 2px 2px 4px rgba(255, 230, 65, 1);
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
