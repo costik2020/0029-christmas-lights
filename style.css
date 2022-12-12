@@ -19,8 +19,21 @@ h2 {
 
 
 
+.christmas-wires-frame {
+    border: 10px solid white;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+
 /*Christmas lights styling*/
-#wire {
+
+
+/*The top wire*/
+
+#wire-top {
 
     ffffborder: 1px solid white;
     text-align: center;
@@ -35,9 +48,8 @@ h2 {
 
 
 
-#wire li {
+#wire-top li {
     
-    fffborder: 1px solid white;
     position: relative;
     list-style: none;
     margin: 0 15px;
@@ -52,31 +64,27 @@ h2 {
 }
 
 /*Add the little wire caps for each light bulbs*/
-#wire li:before {
+#wire-top li:before {
 
    ffffborder: 1px solid green;
     content: "";
     position: absolute;
-    width: 14px;
-    height: 10px;
+    width: 13px;
+    height: 13px;
     border-radius: 4px;
-    top: -5px;
-    left: 0;
+    top: -7px;
+    left: 1px;
     background-color: #444;
 
 }
 
-#wire li:nth-child(even) {
-    animation-name: even-flash;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
-    animation-fill-mode: both;
-
-}
 
 
 
-#wire li:nth-child(odd) {
+
+
+/*
+#wire-top li:nth-child(odd) {
     animation-name: odd-flash;
     animation-duration: 1s;
     animation-iteration-count: infinite;
@@ -84,32 +92,286 @@ h2 {
 
 }
 
+*/
 
 
 
+/*The bottom wire*/
+
+#wire-bottom {
+
+    ffffborder: 1px solid white;
+    text-align: center;
+    white-space: nowrap;
+    position: absolute;
+    bottom: 10px;
+    padding: 0;
+    width: 100%;
+    border-bottom: 3px solid #222;
+    height: 20px;
+}
 
 
-@keyframes even-flash {
-    0% {
-        background: rgba(255, 230, 65, 1);
-        box-shadow: 0px 2px 2px 4px rgba(255, 230, 65, 1);
-    }
 
-    50% {
-        background: rgba(255, 230, 65, 0.5);
-        box-shadow: 0px 2px 2px 4px rgba(255, 230, 65, 0.3);
-    }
+#wire-bottom li {
+    
+    fffborder: 1px solid white;
+    position: relative;
+    list-style: none;
+    margin: 0 15px;
+    padding: 0; 
+    display: inline-block;
+    width: 15px;
+    height: 30px;
+    border-radius: 50%;
+    bottom: 22px;
+    background: white;
 
-    100% {
-        background: rgba(255, 230, 65, 1);
-        box-shadow: 0px 2px 2px 4px rgba(255, 230, 65, 1);
-    }
+}
+
+/*Add the little wire caps for each light bulbs*/
+#wire-bottom li:before {
+
+   ffffborder: 1px solid green;
+    content: "";
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    border-radius: 4px;
+    bottom: -13px;
+    left: 1px;
+    background-color: #444;
 
 }
 
 
 
 
+/*The left wire*/
+
+#wire-left {
+
+    ffffborder: 1px solid white;
+    /*text-align: center;*/
+    /*vertical-align: bottom;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    white-space: nowrap;
+    position: absolute;
+    left: 20px;
+    padding: 0;
+    width: 20px;
+    border-right: 3px solid #222;
+    height: 100%;
+}
+
+
+
+#wire-left li {
+   flex-shrink: 0; 
+    ffffborder: 1px solid white;
+    position: relative;
+    list-style: none;
+    margin: 15px 0;
+    padding: 0; 
+    display: block;
+    width: 30px;
+    height: 15px;
+    border-radius: 50%;
+    left: 22px;
+    background: white;
+
+}
+
+/*Add the little wire caps for each light bulbs*/
+#wire-left li:before {
+
+   ffffborder: 1px solid green;
+    content: "";
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    border-radius: 4px;
+    left: -12px;
+    bottom: -2px;
+    background-color: #444;
+
+}
+
+
+
+/*The left right*/
+
+#wire-right {
+
+    ffffborder: 1px solid white;
+    /*text-align: center;*/
+    /*vertical-align: bottom;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    white-space: nowrap;
+    position: absolute;
+    right: 20px;
+    padding: 0;
+    width: 20px;
+    border-right: 3px solid #222;
+    height: 100%;
+}
+
+
+
+#wire-right li {
+   flex-shrink: 0; 
+    fffborder: 1px solid white;
+    position: relative;
+    list-style: none;
+    margin: 15px 0;
+    padding: 0; 
+    display: block;
+    width: 30px;
+    height: 15px;
+    border-radius: 50%;
+    right: 22px;
+    background: white;
+
+}
+
+/*Add the little wire caps for each light bulbs*/
+#wire-right li:before {
+
+   ffffborder: 1px solid green;
+    content: "";
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    border-radius: 4px;
+    right: -12px;
+    bottom: -2px;
+    background-color: #444;
+
+}
+
+
+/*Animations */
+
+
+
+.wire li:nth-child(4n+1) {
+    animation-name: flash1-red;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+
+}
+
+.wire li:nth-child(4n+2) {
+    animation-name: flash1-green;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+
+}
+
+.wire li:nth-child(4n+3) {
+    animation-name: flash1-orange;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+
+}
+
+.wire li:nth-child(4n+4) {
+    animation-name: flash1-blue;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+
+}
+
+
+
+
+@keyframes flash1-red {
+    0% {
+        background: rgba(255, 0, 0, 1);
+        box-shadow: 0px 2px 2px 4px rgba(255, 0, 0, 1);
+    }
+
+    50% {
+        background: rgba(255, 0, 0, 0.5);
+        box-shadow: 0px 2px 2px 4px rgba(255, 0, 0, 0.3);
+    }
+
+    100% {
+        background: rgba(255, 0, 0, 1);
+        box-shadow: 0px 2px 2px 4px rgba(255, 0, 0, 1);
+    }
+
+}
+
+
+
+@keyframes flash1-green {
+    0% {
+        background: rgba(0, 255, 0, 1);
+        box-shadow: 0px 2px 2px 4px rgba(0, 255, 0, 1);
+    }
+
+    50% {
+        background: rgba(0, 255, 0, 0.5);
+        box-shadow: 0px 2px 2px 4px rgba(0, 255, 0, 0.3);
+    }
+
+    100% {
+        background: rgba(0, 255, 0, 1);
+        box-shadow: 0px 2px 2px 4px rgba(0, 255, 0, 1);
+    }
+
+}
+
+
+@keyframes flash1-orange {
+    0% {
+        background: rgba(255, 127, 0, 1);
+        box-shadow: 0px 2px 2px 4px rgba(255, 127, 0, 1);
+    }
+
+    50% {
+        background: rgba(255, 127, 0, 0.5);
+        box-shadow: 0px 2px 2px 4px rgba(255, 127, 0, 0.3);
+    }
+
+    100% {
+        background: rgba(255, 127, 0, 1);
+        box-shadow: 0px 2px 2px 4px rgba(255, 127, 0, 1);
+    }
+
+}
+
+@keyframes flash1-blue {
+    0% {
+        background: rgba(0, 0, 255, 1);
+        box-shadow: 0px 2px 2px 4px rgba(0, 0, 255, 1);
+    }
+
+    50% {
+        background: rgba(0, 0, 255, 0.5);
+        box-shadow: 0px 2px 2px 4px rgba(0, 0, 255, 0.3);
+    }
+
+    100% {
+        background: rgba(0, 0, 255, 1);
+        box-shadow: 0px 2px 2px 4px rgba(0, 0, 255, 1);
+    }
+
+}
+
+
+/*
 @keyframes ffodd-flash {
     0% {
         background: rgba(255, 65, 185, 1);
@@ -132,7 +394,7 @@ h2 {
 
 
 
-@keyframes odd-flash {
+@keyframes fffodd-flash {
     0% {
         background: rgba(255, 65, 185, 0.5);
         box-shadow: 0px 2px 2px 4px rgba(255, 65, 185, 0.3);
@@ -150,7 +412,7 @@ h2 {
 
 }
 
-
+*/
 
 
 
