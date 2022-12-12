@@ -30,6 +30,66 @@ h2 {
 
 /*Christmas lights styling*/
 
+/*Style the switch*/
+
+.wire-switch {
+    /*border: 1px solid white;*/
+    /*text-align: center;*/
+    /*vertical-align: bottom;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    white-space: nowrap;
+    position: absolute;
+    left: 100px;
+    top: -100px;
+    padding: 0;
+    width: 20px;
+    border-right: 3px solid #222;
+    height: 300px;
+
+}
+
+
+
+
+.lights-switch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #222;
+    position: relative;
+    list-style: none;
+    margin: 15px 0;
+    padding: 0;
+    margin: 0;
+    width: 50px;
+    height: 80px;
+    border-radius: 10px;
+    left: 0px;
+    background: #446639 ;
+}
+
+.lights-switch .christmas-button {
+     border: 2px solid #222;
+    margin: 2px;
+    padding: 0;
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background:  #222;
+   
+}
+
+
+.lights-switch .christmas-button:hover {
+    background: #1EB44B ; 
+}
+
+.lights-switch .christmas-button:active {
+    background: red; 
+}
 
 /*The top wire*/
 
