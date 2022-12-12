@@ -1,0 +1,10 @@
+body {
+    background: url("christmas-santa.png");
+    background-size: cover;
+}
+
+h2 {
+    color: red;
+    margin-top: 5rem;
+    text-align: center;
+}
