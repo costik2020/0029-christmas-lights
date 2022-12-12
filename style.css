@@ -8,6 +8,7 @@ body {
     background: url("christmas-santa.png");
     background-size: cover;
     margin: 0;
+    padding: 0;
 
 }
 
@@ -19,12 +20,23 @@ h2 {
 
 
 
-.christmas-wires-frame {
+#christmas-wires-frame {
+    margin: 0;
+    padding: 0;
     border: 10px solid white;
     position: fixed;
     top: 0;
     width: 100vw;
     height: 100vh;
+
+	/*The `pointer-events` property makes a transparent div unclickable,
+	therefore I can click on any text beneth (under) the transparent div.
+	Withouth this property I was not able to click on the text
+	or highlight the text with my mouse cursor 
+
+    By using this property I can click through the christmas lights frame and highlight the text.
+     */
+	pointer-events: none;
 }
 
 
@@ -33,6 +45,10 @@ h2 {
 /*Style the switch*/
 
 .wire-switch {
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    top: 0;
     /*border: 1px solid white;*/
     /*text-align: center;*/
     /*vertical-align: bottom;*/
@@ -40,7 +56,6 @@ h2 {
     flex-direction: column;
     justify-content: flex-end;
     white-space: nowrap;
-    position: absolute;
     left: 100px;
     top: -100px;
     padding: 0;
@@ -184,7 +199,7 @@ h2 {
     width: 15px;
     height: 30px;
     border-radius: 50%;
-    bottom: 22px;
+    bottom: 15px;
     background: white;
 
 }
@@ -198,7 +213,7 @@ h2 {
     width: 13px;
     height: 13px;
     border-radius: 4px;
-    bottom: -13px;
+    bottom: -6px;
     left: 1px;
     background-color: #444;
 
@@ -254,8 +269,8 @@ h2 {
     width: 13px;
     height: 13px;
     border-radius: 4px;
-    left: -12px;
-    bottom: -2px;
+    left: -5px;
+    bottom: 1px;
     background-color: #444;
 
 }
@@ -295,7 +310,7 @@ h2 {
     width: 30px;
     height: 15px;
     border-radius: 50%;
-    right: 22px;
+    right: 15px;
     background: white;
 
 }
@@ -309,8 +324,8 @@ h2 {
     width: 13px;
     height: 13px;
     border-radius: 4px;
-    right: -12px;
-    bottom: -2px;
+    right: -5px;
+    bottom: 0px;
     background-color: #444;
 
 }
@@ -318,9 +333,10 @@ h2 {
 
 /*Animations */
 
+/*Define flash1 animation*/
 
 
-.wire li:nth-child(4n+1) {
+.frame-flash1 .wire li:nth-child(4n+1) {
     animation-name: flash1-red;
     animation-duration: 1s;
     animation-iteration-count: infinite;
@@ -328,7 +344,7 @@ h2 {
 
 }
 
-.wire li:nth-child(4n+2) {
+.frame-flash1 .wire li:nth-child(4n+2) {
     animation-name: flash1-green;
     animation-duration: 1s;
     animation-iteration-count: infinite;
@@ -336,7 +352,7 @@ h2 {
 
 }
 
-.wire li:nth-child(4n+3) {
+.frame-flash1 .wire li:nth-child(4n+3) {
     animation-name: flash1-orange;
     animation-duration: 1s;
     animation-iteration-count: infinite;
@@ -344,7 +360,7 @@ h2 {
 
 }
 
-.wire li:nth-child(4n+4) {
+.frame-flash1 .wire li:nth-child(4n+4) {
     animation-name: flash1-blue;
     animation-duration: 1s;
     animation-iteration-count: infinite;
@@ -431,21 +447,116 @@ h2 {
 }
 
 
-/*
-@keyframes ffodd-flash {
+
+/*Define flash2 animation*/
+
+
+.frame-flash2 .wire li:nth-child(4n+1) {
+    animation-name: flash2-red;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+
+}
+
+.frame-flash2 .wire li:nth-child(4n+2) {
+    animation-name: flash2-green;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+
+}
+
+.frame-flash2 .wire li:nth-child(4n+3) {
+    animation-name: flash2-orange;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+
+}
+
+.frame-flash2 .wire li:nth-child(4n+4) {
+    animation-name: flash2-blue;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+
+}
+
+
+
+
+@keyframes flash2-red {
     0% {
-        background: rgba(255, 65, 185, 1);
-        box-shadow: 0px 2px 2px 4px rgba(255, 65, 185, 1);
+        background: rgba(255, 0, 0, 0.3);
+        box-shadow: 0px 2px 2px 4px rgba(255, 0, 0, 0.1);
     }
 
     50% {
-        background: rgba(255, 65, 185, 0.5);
-        box-shadow: 0px 2px 2px 4px rgba(255, 65, 185, 0.3);
+        background: rgba(255, 0, 0, 1);
+        box-shadow: 0px 2px 2px 4px rgba(255, 0, 0, 1);
     }
 
     100% {
-        background: rgba(255, 65, 185, 1);
-        box-shadow: 0px 2px 2px 4px rgba(255, 65, 185, 1);
+        background: rgba(255, 0, 0, 0.3);
+        box-shadow: 0px 2px 2px 4px rgba(255, 0, 0, 0.1);
+    }
+
+}
+
+
+
+@keyframes flash2-green {
+    0% {
+        background: rgba(0, 255, 0, 1);
+        box-shadow: 0px 2px 2px 4px rgba(0, 255, 0, 1);
+    }
+
+    50% {
+        background: rgba(0, 255, 0, 0.5);
+        box-shadow: 0px 2px 2px 4px rgba(0, 255, 0, 0.3);
+    }
+
+    100% {
+        background: rgba(0, 255, 0, 1);
+        box-shadow: 0px 2px 2px 4px rgba(0, 255, 0, 1);
+    }
+
+}
+
+
+@keyframes flash2-orange {
+    0% {
+        background: rgba(255, 127, 0, 0.3);
+        box-shadow: 0px 2px 2px 4px rgba(255, 127, 0, 0.1);
+    }
+
+    50% {
+        background: rgba(255, 127, 0, 1);
+        box-shadow: 0px 2px 2px 4px rgba(255, 127, 0, 1);
+    }
+
+    100% {
+        background: rgba(255, 127, 0, 0.3);
+        box-shadow: 0px 2px 2px 4px rgba(255, 127, 0, 0.1);
+    }
+
+}
+
+@keyframes flash2-blue {
+    0% {
+        background: rgba(0, 0, 255, 1);
+        box-shadow: 0px 2px 2px 4px rgba(0, 0, 255, 1);
+    }
+
+    50% {
+        background: rgba(0, 0, 255, 0.5);
+        box-shadow: 0px 2px 2px 4px rgba(0, 0, 255, 0.3);
+    }
+
+    100% {
+        background: rgba(0, 0, 255, 1);
+        box-shadow: 0px 2px 2px 4px rgba(0, 0, 255, 1);
     }
 
 }
@@ -454,34 +565,236 @@ h2 {
 
 
 
-@keyframes fffodd-flash {
+/*Define flash3 animation*/
+
+
+.frame-flash3 .wire li:nth-child(4n+1) {
+    animation-name: flash3-red;
+    animation-duration: 0.2s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+
+}
+
+.frame-flash3 .wire li:nth-child(4n+2) {
+    animation-name: flash3-green;
+    animation-duration: 0.2s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+
+}
+
+.frame-flash3 .wire li:nth-child(4n+3) {
+    animation-name: flash3-orange;
+    animation-duration: 0.2s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+
+}
+
+.frame-flash3 .wire li:nth-child(4n+4) {
+    animation-name: flash3-blue;
+    animation-duration: 0.2s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+
+}
+
+
+
+
+@keyframes flash3-red {
     0% {
-        background: rgba(255, 65, 185, 0.5);
-        box-shadow: 0px 2px 2px 4px rgba(255, 65, 185, 0.3);
+        background: rgba(255, 0, 0, 0.3);
+        box-shadow: 0px 2px 2px 4px rgba(255, 0, 0, 0.1);
     }
 
     50% {
-        background: rgba(255, 65, 185, 1);
-        box-shadow: 0px 2px 2px 4px rgba(255, 65, 185, 1);
+        background: rgba(255, 0, 0, 1);
+        box-shadow: 0px 2px 2px 4px rgba(255, 0, 0, 1);
     }
 
     100% {
-        background: rgba(255, 65, 185, 0.5);
-        box-shadow: 0px 2px 2px 4px rgba(255, 65, 185, 0.3);
+        background: rgba(255, 0, 0, 0.3);
+        box-shadow: 0px 2px 2px 4px rgba(255, 0, 0, 0.1);
     }
 
 }
 
-*/
+
+
+@keyframes flash3-green {
+    0% {
+        background: rgba(0, 255, 0, 1);
+        box-shadow: 0px 2px 2px 4px rgba(0, 255, 0, 1);
+    }
+
+    50% {
+        background: rgba(0, 255, 0, 0.5);
+        box-shadow: 0px 2px 2px 4px rgba(0, 255, 0, 0.3);
+    }
+
+    100% {
+        background: rgba(0, 255, 0, 1);
+        box-shadow: 0px 2px 2px 4px rgba(0, 255, 0, 1);
+    }
+
+}
+
+
+@keyframes flash3-orange {
+    0% {
+        background: rgba(255, 127, 0, 0.3);
+        box-shadow: 0px 2px 2px 4px rgba(255, 127, 0, 0.1);
+    }
+
+    50% {
+        background: rgba(255, 127, 0, 1);
+        box-shadow: 0px 2px 2px 4px rgba(255, 127, 0, 1);
+    }
+
+    100% {
+        background: rgba(255, 127, 0, 0.3);
+        box-shadow: 0px 2px 2px 4px rgba(255, 127, 0, 0.1);
+    }
+
+}
+
+@keyframes flash3-blue {
+    0% {
+        background: rgba(0, 0, 255, 1);
+        box-shadow: 0px 2px 2px 4px rgba(0, 0, 255, 1);
+    }
+
+    50% {
+        background: rgba(0, 0, 255, 0.5);
+        box-shadow: 0px 2px 2px 4px rgba(0, 0, 255, 0.3);
+    }
+
+    100% {
+        background: rgba(0, 0, 255, 1);
+        box-shadow: 0px 2px 2px 4px rgba(0, 0, 255, 1);
+    }
+
+}
+
+
+
+
+/*Define flash4 animation*/
+
+
+.frame-flash4 .wire li:nth-child(4n+1) {
+    animation-name: flash4-red;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+
+}
+
+.frame-flash4 .wire li:nth-child(4n+2) {
+    animation-name: flash4-green;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+
+}
+
+.frame-flash4 .wire li:nth-child(4n+3) {
+    animation-name: flash4-orange;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+
+}
+
+.frame-flash4 .wire li:nth-child(4n+4) {
+    animation-name: flash4-blue;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+
+}
 
 
 
 
 
 
+@keyframes flash4-red {
+    0% {
+        background: rgba(255, 0, 0, 1);
+        box-shadow: 0px 2px 2px 4px rgba(255, 0, 0, 1);
+    }
+
+    50% {
+        background: rgba(255, 0, 0, 0.5);
+        box-shadow: 0px 2px 2px 4px rgba(255, 0, 0, 0.3);
+    }
+
+    100% {
+        background: rgba(255, 0, 0, 1);
+        box-shadow: 0px 2px 2px 4px rgba(255, 0, 0, 1);
+    }
+
+}
 
 
 
+@keyframes flash4-green {
+    0% {
+        background: rgba(0, 255, 0, 1);
+        box-shadow: 0px 2px 2px 4px rgba(0, 255, 0, 1);
+    }
+
+    50% {
+        background: rgba(0, 255, 0, 0.5);
+        box-shadow: 0px 2px 2px 4px rgba(0, 255, 0, 0.3);
+    }
+
+    100% {
+        background: rgba(0, 255, 0, 1);
+        box-shadow: 0px 2px 2px 4px rgba(0, 255, 0, 1);
+    }
+
+}
+
+
+@keyframes flash4-orange {
+    0% {
+        background: rgba(255, 127, 0, 1);
+        box-shadow: 0px 2px 2px 4px rgba(255, 127, 0, 1);
+    }
+
+    50% {
+        background: rgba(255, 127, 0, 0.5);
+        box-shadow: 0px 2px 2px 4px rgba(255, 127, 0, 0.3);
+    }
+
+    100% {
+        background: rgba(255, 127, 0, 1);
+        box-shadow: 0px 2px 2px 4px rgba(255, 127, 0, 1);
+    }
+
+}
+
+@keyframes flash4-blue {
+    0% {
+        background: rgba(0, 0, 255, 1);
+        box-shadow: 0px 2px 2px 4px rgba(0, 0, 255, 1);
+    }
+
+    50% {
+        background: rgba(0, 0, 255, 0.5);
+        box-shadow: 0px 2px 2px 4px rgba(0, 0, 255, 0.3);
+    }
+
+    100% {
+        background: rgba(0, 0, 255, 1);
+        box-shadow: 0px 2px 2px 4px rgba(0, 0, 255, 1);
+    }
+
+}
 
 
 
